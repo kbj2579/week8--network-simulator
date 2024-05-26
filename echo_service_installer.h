@@ -14,7 +14,12 @@ public:
   EchoServiceInstaller(short listenPort) : listenPort_(listenPort) {}
 
   // 호스트에 EchoService를 설치한다.
-  EchoService *install(Host *host);
+  EchoService *install(Host *host){
+    Service *service = new Service(host, listenPort_);
+    EchoService *echoService = new Service(host, listenPort_);    
+    ServiceInstaller installer;
+    installer.install(host, echoService);
+  }
 };
 
 #endif

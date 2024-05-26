@@ -16,6 +16,12 @@ protected:
   short port_;
 
   Service(Host *host, int port) : host_(host), port_(port) {}
+  Host* getHost(){
+    return host_;
+  }
+  short getPort(){
+    return port_;
+  }
 };
 
 #endif
